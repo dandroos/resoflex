@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react"
+import ResolutionConfigurator from "./components/ResolutionConfigurator"
+import { Typography, Container, CssBaseline } from "@mui/material"
+import { ThemeProvider } from "@mui/system"
+import theme from "./theme"
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Container sx={{ padding: "20px" }}>
+        <Typography
+          variant="h1"
+          gutterBottom
+          align="center"
+          sx={{ fontWeight: "bold", textTransform: "uppercase" }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+          ResoFlex
+        </Typography>
+        <Typography variant="body1" align="center" paragraph>
+          RESOFLEX is a tool to find the perfect resolution for whatever your
+          needs. Adjust the sliders and input fields to match your desired
+          aspect ratio and resolution.
+        </Typography>
+        <ResolutionConfigurator />
+      </Container>
+    </ThemeProvider>
+  )
 }
 
-export default App;
+export default App
